@@ -1,20 +1,20 @@
 html {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 @media (min-width: 768px) {
-    html {
-        font-size: 16px;
-    }
+  html {
+    font-size: 16px;
+  }
 }
 
 html {
-    position: relative;
-    min-height: 100%;
+  position: relative;
+  min-height: 100%;
 }
 
 body {
-    margin-bottom: 60px;
+  margin-bottom: 60px;
 }
 /* Global settings */
 * {
@@ -41,7 +41,7 @@ body {
     margin-right: 1rem;
 }
 
-    .mainNav a:hover {
+.mainNav a:hover {
         color: #ffcc00;
     }
 
@@ -124,3 +124,6 @@ body {
     margin: 1rem;
     position: relative;
 }
+
+
+ 
