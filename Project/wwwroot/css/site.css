@@ -32,6 +32,8 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
+    position:fixed;
+    width:100%;
 }
 
 .mainNav a {
@@ -131,6 +133,7 @@ body {
 }
 
 h1 {
+    margin:50px;
     font-size: 36px;
     margin-bottom: 30px;
 }
@@ -172,3 +175,4 @@ a {
     background-size: contain;
     background-repeat: no-repeat;
 }
+
