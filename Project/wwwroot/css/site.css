@@ -131,14 +131,22 @@ body {
     padding: 50px;
     text-align: center;
 }
+.time {
+    display: inline-block;
+    font-size: 80%;
+    color: grey;
+    padding-right: 5px;
+}
+
 /* Contact Page */
 h1 {
     margin:50px;
-    font-size: 36px;
+    font-size: 40px;
     margin-bottom: 30px;
 }
 
 .contact-info {
+    font-weight:bolder;
     text-align: left;
     margin-top: 50px;
 }
@@ -170,16 +178,10 @@ a {
 }
 
 .contBody {
-    color: darkslategray;
+    color: black;
     background-image: url('../Images/cont.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
 }
 
-.time {
-    display: inline-block;
-    font-size: 80%;
-    color: grey;
-    padding-right: 5px;
-}
 
