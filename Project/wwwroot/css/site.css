@@ -62,7 +62,7 @@ body {
     margin-left: 1rem;
 }
 
-/* Banner */
+/* Main Page */
 .banner {
     height: 80vh;
     display: flex;
@@ -102,7 +102,7 @@ body {
         cursor: pointer;
     }
 
-/* Movies */
+/* Movies Page */
 .movies {
     padding: 4rem 2rem;
 }
@@ -131,7 +131,7 @@ body {
     padding: 50px;
     text-align: center;
 }
-
+/* Contact Page */
 h1 {
     margin:50px;
     font-size: 36px;
@@ -165,9 +165,9 @@ a {
     margin-top: 20px;
 }
 
-    .social-media li {
-        margin: 0 10px;
-    }
+.social-media li {
+    margin: 0 10px;
+}
 
 .contBody {
     color: darkslategray;
