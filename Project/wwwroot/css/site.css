@@ -176,3 +176,10 @@ a {
     background-repeat: no-repeat;
 }
 
+.time {
+    display: inline-block;
+    font-size: 80%;
+    color: grey;
+    padding-right: 5px;
+}
+
