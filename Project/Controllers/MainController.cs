@@ -12,6 +12,10 @@ namespace Project.Controllers
         {
             return View();
         }
+        public IActionResult ContactForm()
+		{
+            return View();
+		}
         public IActionResult SignIn()
 		{
             return View();
