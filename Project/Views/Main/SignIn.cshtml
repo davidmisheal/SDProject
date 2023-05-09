@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewData["Title"] = "Sign In";
+}
+
+<form class="sign_in_form" asp-controller="main" asp-action="signin"  method="post">
+  <label class="form_label" for="username">Username:</label>
+  <input class="form_input" type="text" id="username" name="username">
+  <label class="form_label" for="password">Password:</label>
+  <input class="form_input" type="password" id="password" name="password">
+  <button class="signin_btn" type="submit">Sign In</button>
+</form>
+
+
