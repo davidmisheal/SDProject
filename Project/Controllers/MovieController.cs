@@ -7,16 +7,19 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Project.Data;
 using Project.Models;
+using Microsoft.Extensions.Hosting;
 
 namespace Project.Controllers
 {
     public class MovieController : Controller
     {
         private readonly ApplicationDBcontext _context;
+		private readonly IWebHostEnvironment _environment;
 
-        public MovieController(ApplicationDBcontext context)
+		public MovieController(ApplicationDBcontext context,IWebHostEnvironment environment)
         {
             _context = context;
+            _environment = environment;
         }
 
         // GET: Movie
@@ -56,19 +59,44 @@ namespace Project.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Movie_Id,Title,Duration,Date,Rating,Movie_Pic")] Movie movie)
+        public async Task<IActionResult> Create([Bind("Movie_Id,Title,Duration,Date,Rating")] Movie movie, IFormFile img_file)
         {
-            if (ModelState.IsValid)
+			
+			// to create Images folder in the project Path.
+			string path = Path.Combine(_environment.WebRootPath, "Images"); // wwwroot/Img/
+			if (!Directory.Exists(path))
+			{
+				Directory.CreateDirectory(path);
+			}
+			if (img_file != null)
+			{
+				path = Path.Combine(path, img_file.FileName); // for exmple : /Img/Photoname.png
+				using (var stream = new FileStream(path, FileMode.Create))
+				{
+					await img_file.CopyToAsync(stream);
+					//ViewBag.Message = string.Format("<b>{0}</b> uploaded.</br>", img_file.FileName.ToString());
+                    movie.Movie_Pic=img_file.FileName;
+				}
+			}
+            else
+            {
+                movie.Movie_Pic = "default.jpeg"; // to save the default image path in database.
+            }
+            try
             {
                 _context.Add(movie);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                _context.SaveChanges();
+                return RedirectToAction("Index");
             }
-            return View(movie);
-        }
+            catch (Exception ex) { ViewBag.exc = ex.Message; }
 
-        // GET: Movie/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+            return View();
+
+
+		}
+
+		// GET: Movie/Edit/5
+		public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Movies == null)
             {
@@ -88,7 +116,7 @@ namespace Project.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Movie_Id,Title,Duration,Date,Rating,Movie_Pic")] Movie movie)
+        public async Task<IActionResult> Edit(int id, [Bind("Movie_Id,Title,Duration,Date,Rating,Movie_Pic")] Movie movie, IFormFile img_file)
         {
             if (id != movie.Movie_Id)
             {

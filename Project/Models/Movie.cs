@@ -21,8 +21,10 @@ namespace Project.Models
         [DisplayName("Movie Rating")]
         public string Rating { get; set; }
 
+        [Required(ErrorMessage = "The Image field is required.")]
         [Display(Name = "Image")]
         [DefaultValue("default.png")]
+
         public string Movie_Pic { get; set; }
 
 
