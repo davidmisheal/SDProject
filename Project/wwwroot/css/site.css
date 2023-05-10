@@ -322,3 +322,117 @@ button[type="submit"]:hover {
     .contact-btn:hover {
         background-color: #0056b3;
     }
+
+
+/* Booking View */
+.book {
+    background-color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.movie-cont {
+    margin: 10px 0;
+    color: #ffcc00;
+}
+
+.cont{
+    margin: 20px;
+}
+
+.movie-cont select {
+    border-radius: 5px;
+    font-size: 15px;
+    padding: 5px 20px;
+}
+
+.date {
+    margin: 20px;
+}
+
+
+.seat {
+    background-color: grey;
+    height: 25px;
+    width: 28px;
+    margin: 3px;
+    border-radius: 50%;
+}
+
+    .seat.sold {
+        background-color: #8b0000;
+    }
+
+    .seat:not(.sold):hover {
+        cursor: pointer;
+        background-color: #ffcc00;
+    }
+
+    .seat:nth-of-type(3) {
+        margin-right: 20px;
+    }
+
+    .seat:nth-last-of-type(3) {
+        margin-left: 20px;
+    }
+
+.showcase {
+    padding: 5px 10px;
+    color: #ffcc00;
+    ;
+    list-style-type: none;
+    display: flex;
+}
+ .showcase li {
+        display: flex;
+        align-items: center;
+        margin: 0 10px;
+    }
+
+.Available {
+    background-color: grey;
+    height: 20px;
+    width: 23px;
+    margin: 3px;
+    border-radius: 50%;
+}
+
+.Booked {
+    background-color: #8b0000;
+    height: 20px;
+    width: 23px;
+    margin: 3px;
+    border-radius: 50%;
+}
+
+
+.row {
+    display: flex;
+}
+.Tickets {
+    width: 15%;
+}
+
+.screen {
+    background-color: #ffcc00;
+    height: 20%;
+    width: 100%;
+    margin: 15px 0;
+    text-align: center;
+    font-size: 40px;
+    color: #333;
+}
+
+.submit {
+    background-color: #ffcc00;
+    font-size: 20px;
+    color: #333;
+}
+.submit:hover {
+        cursor: pointer;
+    }
