@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Project.Models
@@ -8,18 +9,27 @@ namespace Project.Models
         [Key]
         public int Movie_Id { get; set; }
         [Required(ErrorMessage = "Title is Required")]
+        [DisplayName("Movie Title")]
         public string Title { get; set; }
         [Required(ErrorMessage = "Duration is Required")]
+        [DisplayName("Movie Duaration")]
         public int Duration { get; set; }
         [Required(ErrorMessage = "Date is Required")]
+        [DisplayName("Movie Date")]
         public DateTime Date { get; set; }
         [Required(ErrorMessage = "Rating is Required")]
+        [DisplayName("Movie Rating")]
         public string Rating { get; set; }
+
+        [Display(Name = "Image")]
+        [DefaultValue("default.png")]
+        public string Movie_Pic { get; set; }
+
 
         [ForeignKey("AdminID")]
         public Admin? Admin { get; set; }
 
-   
+
 
         [ForeignKey("HallID")]
         public Hall? Hall { get; set; }
